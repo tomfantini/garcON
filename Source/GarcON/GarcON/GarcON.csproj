@@ -75,7 +75,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Cardapio.cs" />
     <Compile Include="Model\Pedido.cs" />
+    <Compile Include="Model\Produto.cs" />
+    <Compile Include="Model\ProdutoCategoria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
