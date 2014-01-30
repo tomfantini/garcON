@@ -61,6 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Cardapio.cs" />
+    <Compile Include="Model\Pessoa.cs" />
+    <Compile Include="Model\Produto.cs" />
+    <Compile Include="Model\ProdutoCategoria.cs" />
     <Compile Include="Utils\Class1.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="View\HomeView.xaml.cs">
@@ -83,16 +87,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Inicio.Theme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Cardapio.cs" />
     <Compile Include="Model\Pedido.cs" />
-    <Compile Include="Model\Produto.cs" />
-    <Compile Include="Model\ProdutoCategoria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
