@@ -18,7 +18,7 @@ namespace GarcON.Model
             Agua = 7,
             Dose = 8,
             Pizza = 9,
-            Outros = 10
+            Outros = 99
         }
     }
 }
