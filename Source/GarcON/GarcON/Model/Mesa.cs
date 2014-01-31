@@ -5,7 +5,11 @@ using System.Text;
 
 namespace GarcON.Model
 {
-    class Mesa
+    public class Mesa
     {
+        public int NumeroMesa { get; set; }
+        public Cliente Cliente { get; set; }
+        public Pedido Pedido { get; set; }
+        public Funcionario Garcon { get; set; }
     }
 }

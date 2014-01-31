@@ -9,6 +9,8 @@ namespace GarcON.Model
     {
         public int NumeroDelivery { get; set; }
         public Pedido Pedido { get; set; }
+        public Cliente Cliente { get; set; }
+        public Funcionario Entregador { get; set; }
 
     }
 }
