@@ -73,6 +73,11 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="View\Cadastro\Produtos\CadastroProdutosView.xaml.cs">
       <DependentUpon>CadastroProdutosView.xaml</DependentUpon>
+    <Compile Include="View\Cadastro\CadastroProdutos.xaml.cs">
+      <DependentUpon>CadastroProdutos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cadastro\Funcionario\ListagemFuncionarioView.xaml.cs">
+      <DependentUpon>ListagemFuncionarioView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -91,6 +96,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Cadastro\Produtos\CadastroProdutosView.xaml">
+    <Page Include="View\Cadastro\CadastroProdutos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Cadastro\Funcionario\ListagemFuncionarioView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
