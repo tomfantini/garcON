@@ -71,11 +71,11 @@
     <Compile Include="Model\ProdutoCategoria.cs" />
     <Compile Include="Utils\Class1.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="View\Cadastro\Produtos\CadastroProdutosView.xaml.cs">
+      <DependentUpon>CadastroProdutosView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pedido.xaml.cs">
-      <DependentUpon>Pedido.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -90,11 +90,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\HomeView.xaml">
+    <Page Include="View\Cadastro\Produtos\CadastroProdutosView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pedido.xaml">
+    <Page Include="View\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
