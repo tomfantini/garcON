@@ -6,6 +6,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <Button Content="Button" HorizontalAlignment="Left" Margin="57,50,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.5,0.5" Height="80">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.093"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
     </Grid>
 </UserControl>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="GarcON.View.Pedido"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pedido" Height="526.855" Width="643.463">
+    <Grid>
+        <TextBox x:Name="TxtPedido" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox x:Name="TxtGarcon" HorizontalAlignment="Left" Height="23" Margin="177,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox x:Name="TxtMesa" HorizontalAlignment="Left" Height="23" Margin="342,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox x:Name="TxtOperador" HorizontalAlignment="Left" Height="23" Margin="505,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1"/>
+        <Grid HorizontalAlignment="Left" Height="200" Margin="10,58,0,0" VerticalAlignment="Top" Width="615"/>
+        <Grid HorizontalAlignment="Left" Height="132" Margin="10,263,0,0" VerticalAlignment="Top" Width="615"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="550,445,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
