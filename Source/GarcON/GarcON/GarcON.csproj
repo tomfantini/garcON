@@ -61,6 +61,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GarcONDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GarcONDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Cardapio.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Delivery.cs" />
@@ -125,6 +130,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="GarcONDataSet.xsc">
+      <DependentUpon>GarcONDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GarcONDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GarcONDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GarcONDataSet.xss">
+      <DependentUpon>GarcONDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

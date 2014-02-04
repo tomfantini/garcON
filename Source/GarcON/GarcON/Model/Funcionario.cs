@@ -7,7 +7,7 @@ namespace GarcON.Model
 {
     public class Funcionario : Pessoa
     {
-        public int Id { get; set; }
+        public int FuncionarioId { get; set; }
         public string Funcao { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }

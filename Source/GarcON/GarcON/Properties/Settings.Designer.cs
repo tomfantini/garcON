@@ -22,5 +22,15 @@ namespace GarcON.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=GABRIEL\\SQLEXPRESS;Initial Catalog=GarcON;Integrated Security=True")]
+        public string GarcONConnectionString {
+            get {
+                return ((string)(this["GarcONConnectionString"]));
+            }
+        }
     }
 }

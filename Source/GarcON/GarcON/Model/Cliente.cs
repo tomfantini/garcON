@@ -7,7 +7,7 @@ namespace GarcON.Model
 {
     public class Cliente : Pessoa
     {
-        public int Id { get; set; }
+        public int ClienteId { get; set; }
         public List<Pedido> Pedidos { get; set; }
     }
 }

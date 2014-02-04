@@ -7,7 +7,7 @@ namespace GarcON.Model
 {
     public class Pessoa
     {
-        public int Id { get; set; }
+        public int PessoaId { get; set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }
         public Documento Documento { get; set; }
