@@ -1,0 +1,16 @@
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\bin\Debug\garcON.exe.config
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\bin\Debug\garcON.exe
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\bin\Debug\garcON.pdb
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\obj\Debug\garcON.Form1.resources
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\obj\Debug\garcON.Properties.Resources.resources
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\obj\Debug\garcON.csproj.GenerateResource.Cache
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\obj\Debug\garcON.exe
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\obj\Debug\garcON.pdb
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\bin\Debug\EntityFramework.dll
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\bin\Debug\EntityFramework.xml
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\garcON\obj\Debug\garcON.csprojResolveAssemblyReference.cache
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\bin\Debug\garcON.exe.config
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\obj\Debug\garcON.exe
+C:\Users\cleytonf\Documents\Projetos\garcON\garcON\obj\Debug\garcON.pdb

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="garcONModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Documento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="Numero" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="NumeroPedidoId" />
+    </Key>
+    <Property Name="NumeroPedidoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cliente_PessoaId" Type="int" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="PessoaId" />
+    </Key>
+    <Property Name="PessoaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" />
+    <Property Name="SobreNome" Type="nvarchar(max)" />
+    <Property Name="Endereco_Descricao" Type="nvarchar(max)" />
+    <Property Name="Endereco_Numero" Type="nvarchar(max)" />
+    <Property Name="Endereco_Bairro" Type="nvarchar(max)" />
+    <Property Name="Endereco_CEP" Type="nvarchar(max)" />
+    <Property Name="Endereco_Cidade" Type="nvarchar(max)" />
+    <Property Name="Endereco_Estado" Type="nvarchar(max)" />
+    <Property Name="Endereco_Pais" Type="nvarchar(max)" />
+    <Property Name="Telefone1" Type="nvarchar(max)" />
+    <Property Name="Telefone2" Type="nvarchar(max)" />
+    <Property Name="ClienteId" Type="int" />
+    <Property Name="FuncionarioId" Type="int" />
+    <Property Name="Funcao" Type="nvarchar(max)" />
+    <Property Name="Login" Type="nvarchar(max)" />
+    <Property Name="Senha" Type="nvarchar(max)" />
+    <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Documento_Id" Type="int" />
+  </EntityType>
+  <Association Name="FK_dbo_Pedido_dbo_Pessoa_Cliente_PessoaId">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="0..1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="PessoaId" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="Cliente_PessoaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Pessoa_dbo_Documento_Documento_Id">
+    <End Role="Documento" Type="Self.Documento" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="Documento_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="garcONModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documento" EntityType="Self.Documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Pedido_dbo_Pessoa_Cliente_PessoaId" Association="Self.FK_dbo_Pedido_dbo_Pessoa_Cliente_PessoaId">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Pessoa_dbo_Documento_Documento_Id" Association="Self.FK_dbo_Pessoa_dbo_Documento_Documento_Id">
+      <End Role="Documento" EntitySet="Documento" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
