@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="garcONModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TB_DOMINIO_FUNCAO">
+    <Key>
+      <PropertyRef Name="FuncaoId" />
+    </Key>
+    <Property Name="FuncaoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescricaoFuncao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_FUNCIONARIO" Relationship="Self.FK_TB_FUNCIONARIO_TB_DOMINIO_FUNCAO" FromRole="TB_DOMINIO_FUNCAO" ToRole="TB_FUNCIONARIO" />
+  </EntityType>
+  <EntityType Name="TB_DOMINIO_TIPOPESSOA">
+    <Key>
+      <PropertyRef Name="TipoPessoaId" />
+    </Key>
+    <Property Name="TipoPessoaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescricaoTipoPessoa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_PESSOA" Relationship="garcONModel.FK_TB_PESSOA_TB_DOMINIO_TIPOPESSOA" FromRole="TB_DOMINIO_TIPOPESSOA" ToRole="TB_PESSOA" />
+  </EntityType>
+  <EntityType Name="TB_FUNCIONARIO">
+    <Key>
+      <PropertyRef Name="FuncionarioId" />
+    </Key>
+    <Property Name="FuncionarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PessoaId" Type="Int32" Nullable="false" />
+    <Property Name="FuncaoId" Type="Int32" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Senha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_DOMINIO_FUNCAO" Relationship="Self.FK_TB_FUNCIONARIO_TB_DOMINIO_FUNCAO" FromRole="TB_FUNCIONARIO" ToRole="TB_DOMINIO_FUNCAO" />
+    <NavigationProperty Name="TB_PESSOA" Relationship="Self.FK_TB_FUNCIONARIO_TB_PESSOA" FromRole="TB_FUNCIONARIO" ToRole="TB_PESSOA" />
+  </EntityType>
+  <EntityType Name="TB_PESSOA">
+    <Key>
+      <PropertyRef Name="PessoaId" />
+    </Key>
+    <Property Name="PessoaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPFCNPJ" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RG" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TipoPessoa" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TB_FUNCIONARIO" Relationship="Self.FK_TB_FUNCIONARIO_TB_PESSOA" FromRole="TB_PESSOA" ToRole="TB_FUNCIONARIO" />
+    <NavigationProperty Name="TB_ENDERECO" Relationship="Self.FK_TB_ENDERECO_TB_PESSOA" FromRole="TB_PESSOA" ToRole="TB_ENDERECO" />
+    <NavigationProperty Name="TB_TELEFONE" Relationship="Self.FK_TB_TELEFONE_TB_PESSOA" FromRole="TB_PESSOA" ToRole="TB_TELEFONE" />
+    <NavigationProperty Name="TB_DOMINIO_TIPOPESSOA" Relationship="garcONModel.FK_TB_PESSOA_TB_DOMINIO_TIPOPESSOA" FromRole="TB_PESSOA" ToRole="TB_DOMINIO_TIPOPESSOA" />
+  </EntityType>
+  <EntityType Name="TB_ENDERECO">
+    <Key>
+      <PropertyRef Name="PessoaId" />
+      <PropertyRef Name="Endereco" />
+      <PropertyRef Name="Numero" />
+      <PropertyRef Name="Bairro" />
+      <PropertyRef Name="CEP" />
+      <PropertyRef Name="Cidade" />
+      <PropertyRef Name="Estado" />
+      <PropertyRef Name="Pais" />
+    </Key>
+    <Property Name="PessoaId" Type="Int32" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Numero" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CEP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cidade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_PESSOA" Relationship="Self.FK_TB_ENDERECO_TB_PESSOA" FromRole="TB_ENDERECO" ToRole="TB_PESSOA" />
+  </EntityType>
+  <EntityType Name="TB_TELEFONE">
+    <Key>
+      <PropertyRef Name="PessoaId" />
+    </Key>
+    <Property Name="PessoaId" Type="Int32" Nullable="false" />
+    <Property Name="DDDTelefoneResidencial" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="TelefoneResidencial" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DDDTelefoneComercial" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="TelefoneComercial" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DDDTelefoneCelular" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="TelefoneCelular" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DDDTelefoneContato" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="TelefoneContato" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_PESSOA" Relationship="Self.FK_TB_TELEFONE_TB_PESSOA" FromRole="TB_TELEFONE" ToRole="TB_PESSOA" />
+  </EntityType>
+  <Association Name="FK_TB_FUNCIONARIO_TB_DOMINIO_FUNCAO">
+    <End Role="TB_DOMINIO_FUNCAO" Type="Self.TB_DOMINIO_FUNCAO" Multiplicity="1" />
+    <End Role="TB_FUNCIONARIO" Type="Self.TB_FUNCIONARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_DOMINIO_FUNCAO">
+        <PropertyRef Name="FuncaoId" />
+      </Principal>
+      <Dependent Role="TB_FUNCIONARIO">
+        <PropertyRef Name="FuncaoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_FUNCIONARIO_TB_PESSOA">
+    <End Role="TB_PESSOA" Type="Self.TB_PESSOA" Multiplicity="1" />
+    <End Role="TB_FUNCIONARIO" Type="Self.TB_FUNCIONARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_PESSOA">
+        <PropertyRef Name="PessoaId" />
+      </Principal>
+      <Dependent Role="TB_FUNCIONARIO">
+        <PropertyRef Name="PessoaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_ENDERECO_TB_PESSOA">
+    <End Role="TB_PESSOA" Type="Self.TB_PESSOA" Multiplicity="1" />
+    <End Role="TB_ENDERECO" Type="Self.TB_ENDERECO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_PESSOA">
+        <PropertyRef Name="PessoaId" />
+      </Principal>
+      <Dependent Role="TB_ENDERECO">
+        <PropertyRef Name="PessoaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_TELEFONE_TB_PESSOA">
+    <End Role="TB_PESSOA" Type="Self.TB_PESSOA" Multiplicity="1" />
+    <End Role="TB_TELEFONE" Type="Self.TB_TELEFONE" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TB_PESSOA">
+        <PropertyRef Name="PessoaId" />
+      </Principal>
+      <Dependent Role="TB_TELEFONE">
+        <PropertyRef Name="PessoaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="garcONEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TB_DOMINIO_FUNCAO" EntityType="Self.TB_DOMINIO_FUNCAO" />
+    <EntitySet Name="TB_DOMINIO_TIPOPESSOA" EntityType="Self.TB_DOMINIO_TIPOPESSOA" />
+    <EntitySet Name="TB_FUNCIONARIO" EntityType="Self.TB_FUNCIONARIO" />
+    <EntitySet Name="TB_PESSOA" EntityType="Self.TB_PESSOA" />
+    <EntitySet Name="TB_ENDERECO" EntityType="Self.TB_ENDERECO" />
+    <EntitySet Name="TB_TELEFONE" EntityType="Self.TB_TELEFONE" />
+    <AssociationSet Name="FK_TB_FUNCIONARIO_TB_DOMINIO_FUNCAO" Association="Self.FK_TB_FUNCIONARIO_TB_DOMINIO_FUNCAO">
+      <End Role="TB_DOMINIO_FUNCAO" EntitySet="TB_DOMINIO_FUNCAO" />
+      <End Role="TB_FUNCIONARIO" EntitySet="TB_FUNCIONARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_FUNCIONARIO_TB_PESSOA" Association="Self.FK_TB_FUNCIONARIO_TB_PESSOA">
+      <End Role="TB_PESSOA" EntitySet="TB_PESSOA" />
+      <End Role="TB_FUNCIONARIO" EntitySet="TB_FUNCIONARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_ENDERECO_TB_PESSOA" Association="Self.FK_TB_ENDERECO_TB_PESSOA">
+      <End Role="TB_PESSOA" EntitySet="TB_PESSOA" />
+      <End Role="TB_ENDERECO" EntitySet="TB_ENDERECO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_TELEFONE_TB_PESSOA" Association="Self.FK_TB_TELEFONE_TB_PESSOA">
+      <End Role="TB_PESSOA" EntitySet="TB_PESSOA" />
+      <End Role="TB_TELEFONE" EntitySet="TB_TELEFONE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_PESSOA_TB_DOMINIO_TIPOPESSOA" Association="garcONModel.FK_TB_PESSOA_TB_DOMINIO_TIPOPESSOA">
+      <End Role="TB_DOMINIO_TIPOPESSOA" EntitySet="TB_DOMINIO_TIPOPESSOA" />
+      <End Role="TB_PESSOA" EntitySet="TB_PESSOA" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_TB_PESSOA_TB_DOMINIO_TIPOPESSOA">
+    <End Type="garcONModel.TB_DOMINIO_TIPOPESSOA" Role="TB_DOMINIO_TIPOPESSOA" Multiplicity="1" />
+    <End Type="garcONModel.TB_PESSOA" Role="TB_PESSOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_DOMINIO_TIPOPESSOA">
+        <PropertyRef Name="TipoPessoaId" />
+      </Principal>
+      <Dependent Role="TB_PESSOA">
+        <PropertyRef Name="TipoPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

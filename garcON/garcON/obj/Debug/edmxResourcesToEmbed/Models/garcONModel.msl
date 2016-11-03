@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="garcONModelStoreContainer" CdmEntityContainer="garcONEntities">
+    <EntitySetMapping Name="TB_DOMINIO_FUNCAO">
+      <EntityTypeMapping TypeName="garcONModel.TB_DOMINIO_FUNCAO">
+        <MappingFragment StoreEntitySet="TB_DOMINIO_FUNCAO">
+          <ScalarProperty Name="FuncaoId" ColumnName="FuncaoId" />
+          <ScalarProperty Name="DescricaoFuncao" ColumnName="DescricaoFuncao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_DOMINIO_TIPOPESSOA">
+      <EntityTypeMapping TypeName="garcONModel.TB_DOMINIO_TIPOPESSOA">
+        <MappingFragment StoreEntitySet="TB_DOMINIO_TIPOPESSOA">
+          <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+          <ScalarProperty Name="DescricaoTipoPessoa" ColumnName="DescricaoTipoPessoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_FUNCIONARIO">
+      <EntityTypeMapping TypeName="garcONModel.TB_FUNCIONARIO">
+        <MappingFragment StoreEntitySet="TB_FUNCIONARIO">
+          <ScalarProperty Name="FuncionarioId" ColumnName="FuncionarioId" />
+          <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+          <ScalarProperty Name="FuncaoId" ColumnName="FuncaoId" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PESSOA">
+      <EntityTypeMapping TypeName="garcONModel.TB_PESSOA">
+        <MappingFragment StoreEntitySet="TB_PESSOA">
+          <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CPFCNPJ" ColumnName="CPFCNPJ" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="TipoPessoa" ColumnName="TipoPessoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ENDERECO">
+      <EntityTypeMapping TypeName="garcONModel.TB_ENDERECO">
+        <MappingFragment StoreEntitySet="TB_ENDERECO">
+          <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TELEFONE">
+      <EntityTypeMapping TypeName="garcONModel.TB_TELEFONE">
+        <MappingFragment StoreEntitySet="TB_TELEFONE">
+          <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+          <ScalarProperty Name="DDDTelefoneResidencial" ColumnName="DDDTelefoneResidencial" />
+          <ScalarProperty Name="TelefoneResidencial" ColumnName="TelefoneResidencial" />
+          <ScalarProperty Name="DDDTelefoneComercial" ColumnName="DDDTelefoneComercial" />
+          <ScalarProperty Name="TelefoneComercial" ColumnName="TelefoneComercial" />
+          <ScalarProperty Name="DDDTelefoneCelular" ColumnName="DDDTelefoneCelular" />
+          <ScalarProperty Name="TelefoneCelular" ColumnName="TelefoneCelular" />
+          <ScalarProperty Name="DDDTelefoneContato" ColumnName="DDDTelefoneContato" />
+          <ScalarProperty Name="TelefoneContato" ColumnName="TelefoneContato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

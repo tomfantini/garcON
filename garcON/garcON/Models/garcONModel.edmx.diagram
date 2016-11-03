@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="77f5588873f74706acf936da6caafeb4" Name="Diagram1">
+        <EntityTypeShape EntityType="garcONModel.TB_DOMINIO_FUNCAO" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="garcONModel.TB_DOMINIO_TIPOPESSOA" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="garcONModel.TB_FUNCIONARIO" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="garcONModel.TB_PESSOA" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="garcONModel.TB_ENDERECO" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="garcONModel.TB_TELEFONE" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="garcONModel.FK_TB_FUNCIONARIO_TB_DOMINIO_FUNCAO" ManuallyRouted="false" />
+        <AssociationConnector Association="garcONModel.FK_TB_FUNCIONARIO_TB_PESSOA" ManuallyRouted="false" />
+        <AssociationConnector Association="garcONModel.FK_TB_ENDERECO_TB_PESSOA" ManuallyRouted="false" />
+        <AssociationConnector Association="garcONModel.FK_TB_TELEFONE_TB_PESSOA" ManuallyRouted="false" />
+        <AssociationConnector Association="garcONModel.FK_TB_PESSOA_TB_DOMINIO_TIPOPESSOA" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

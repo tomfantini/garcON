@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="garcONModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TB_DOMINIO_FUNCAO">
+    <Key>
+      <PropertyRef Name="FuncaoId" />
+    </Key>
+    <Property Name="FuncaoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescricaoFuncao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_DOMINIO_TIPOPESSOA">
+    <Key>
+      <PropertyRef Name="TipoPessoaId" />
+    </Key>
+    <Property Name="TipoPessoaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescricaoTipoPessoa" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'garcON.dbo.TB_ENDERECO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TB_ENDERECO">
+    <Key>
+      <PropertyRef Name="PessoaId" />
+      <PropertyRef Name="Endereco" />
+      <PropertyRef Name="Numero" />
+      <PropertyRef Name="Bairro" />
+      <PropertyRef Name="CEP" />
+      <PropertyRef Name="Cidade" />
+      <PropertyRef Name="Estado" />
+      <PropertyRef Name="Pais" />
+    </Key>
+    <Property Name="PessoaId" Type="int" Nullable="false" />
+    <Property Name="Endereco" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Numero" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Complemento" Type="varchar" MaxLength="50" />
+    <Property Name="Bairro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CEP" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Cidade" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pais" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_FUNCIONARIO">
+    <Key>
+      <PropertyRef Name="FuncionarioId" />
+    </Key>
+    <Property Name="FuncionarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PessoaId" Type="int" Nullable="false" />
+    <Property Name="FuncaoId" Type="int" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="50" />
+    <Property Name="Senha" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TB_PESSOA">
+    <Key>
+      <PropertyRef Name="PessoaId" />
+    </Key>
+    <Property Name="PessoaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CPFCNPJ" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="RG" Type="varchar" MaxLength="15" />
+    <Property Name="TipoPessoa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'garcON.dbo.TB_TELEFONE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TB_TELEFONE">
+    <Key>
+      <PropertyRef Name="PessoaId" />
+    </Key>
+    <Property Name="PessoaId" Type="int" Nullable="false" />
+    <Property Name="DDDTelefoneResidencial" Type="varchar" MaxLength="3" />
+    <Property Name="TelefoneResidencial" Type="varchar" MaxLength="15" />
+    <Property Name="DDDTelefoneComercial" Type="varchar" MaxLength="3" />
+    <Property Name="TelefoneComercial" Type="varchar" MaxLength="15" />
+    <Property Name="DDDTelefoneCelular" Type="varchar" MaxLength="3" />
+    <Property Name="TelefoneCelular" Type="varchar" MaxLength="15" />
+    <Property Name="DDDTelefoneContato" Type="varchar" MaxLength="3" />
+    <Property Name="TelefoneContato" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <Association Name="FK_TB_ENDERECO_TB_PESSOA">
+    <End Role="TB_PESSOA" Type="Self.TB_PESSOA" Multiplicity="1" />
+    <End Role="TB_ENDERECO" Type="Self.TB_ENDERECO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_PESSOA">
+        <PropertyRef Name="PessoaId" />
+      </Principal>
+      <Dependent Role="TB_ENDERECO">
+        <PropertyRef Name="PessoaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_FUNCIONARIO_TB_DOMINIO_FUNCAO">
+    <End Role="TB_DOMINIO_FUNCAO" Type="Self.TB_DOMINIO_FUNCAO" Multiplicity="1" />
+    <End Role="TB_FUNCIONARIO" Type="Self.TB_FUNCIONARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_DOMINIO_FUNCAO">
+        <PropertyRef Name="FuncaoId" />
+      </Principal>
+      <Dependent Role="TB_FUNCIONARIO">
+        <PropertyRef Name="FuncaoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_FUNCIONARIO_TB_PESSOA">
+    <End Role="TB_PESSOA" Type="Self.TB_PESSOA" Multiplicity="1" />
+    <End Role="TB_FUNCIONARIO" Type="Self.TB_FUNCIONARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_PESSOA">
+        <PropertyRef Name="PessoaId" />
+      </Principal>
+      <Dependent Role="TB_FUNCIONARIO">
+        <PropertyRef Name="PessoaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_PESSOA_TB_DOMINIO_TIPOPESSOA">
+    <End Role="TB_DOMINIO_TIPOPESSOA" Type="Self.TB_DOMINIO_TIPOPESSOA" Multiplicity="1" />
+    <End Role="TB_PESSOA" Type="Self.TB_PESSOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_DOMINIO_TIPOPESSOA">
+        <PropertyRef Name="TipoPessoaId" />
+      </Principal>
+      <Dependent Role="TB_PESSOA">
+        <PropertyRef Name="TipoPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_TELEFONE_TB_PESSOA">
+    <End Role="TB_PESSOA" Type="Self.TB_PESSOA" Multiplicity="1" />
+    <End Role="TB_TELEFONE" Type="Self.TB_TELEFONE" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TB_PESSOA">
+        <PropertyRef Name="PessoaId" />
+      </Principal>
+      <Dependent Role="TB_TELEFONE">
+        <PropertyRef Name="PessoaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="garcONModelStoreContainer">
+    <EntitySet Name="TB_DOMINIO_FUNCAO" EntityType="Self.TB_DOMINIO_FUNCAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_DOMINIO_TIPOPESSOA" EntityType="Self.TB_DOMINIO_TIPOPESSOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_FUNCIONARIO" EntityType="Self.TB_FUNCIONARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_PESSOA" EntityType="Self.TB_PESSOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_ENDERECO" EntityType="Self.TB_ENDERECO" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TB_ENDERECO].[PessoaId] AS [PessoaId], 
+    [TB_ENDERECO].[Endereco] AS [Endereco], 
+    [TB_ENDERECO].[Numero] AS [Numero], 
+    [TB_ENDERECO].[Complemento] AS [Complemento], 
+    [TB_ENDERECO].[Bairro] AS [Bairro], 
+    [TB_ENDERECO].[CEP] AS [CEP], 
+    [TB_ENDERECO].[Cidade] AS [Cidade], 
+    [TB_ENDERECO].[Estado] AS [Estado], 
+    [TB_ENDERECO].[Pais] AS [Pais]
+    FROM [dbo].[TB_ENDERECO] AS [TB_ENDERECO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TB_TELEFONE" EntityType="Self.TB_TELEFONE" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TB_TELEFONE].[PessoaId] AS [PessoaId], 
+    [TB_TELEFONE].[DDDTelefoneResidencial] AS [DDDTelefoneResidencial], 
+    [TB_TELEFONE].[TelefoneResidencial] AS [TelefoneResidencial], 
+    [TB_TELEFONE].[DDDTelefoneComercial] AS [DDDTelefoneComercial], 
+    [TB_TELEFONE].[TelefoneComercial] AS [TelefoneComercial], 
+    [TB_TELEFONE].[DDDTelefoneCelular] AS [DDDTelefoneCelular], 
+    [TB_TELEFONE].[TelefoneCelular] AS [TelefoneCelular], 
+    [TB_TELEFONE].[DDDTelefoneContato] AS [DDDTelefoneContato], 
+    [TB_TELEFONE].[TelefoneContato] AS [TelefoneContato]
+    FROM [dbo].[TB_TELEFONE] AS [TB_TELEFONE]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_TB_ENDERECO_TB_PESSOA" Association="Self.FK_TB_ENDERECO_TB_PESSOA">
+      <End Role="TB_PESSOA" EntitySet="TB_PESSOA" />
+      <End Role="TB_ENDERECO" EntitySet="TB_ENDERECO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_FUNCIONARIO_TB_DOMINIO_FUNCAO" Association="Self.FK_TB_FUNCIONARIO_TB_DOMINIO_FUNCAO">
+      <End Role="TB_DOMINIO_FUNCAO" EntitySet="TB_DOMINIO_FUNCAO" />
+      <End Role="TB_FUNCIONARIO" EntitySet="TB_FUNCIONARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_FUNCIONARIO_TB_PESSOA" Association="Self.FK_TB_FUNCIONARIO_TB_PESSOA">
+      <End Role="TB_PESSOA" EntitySet="TB_PESSOA" />
+      <End Role="TB_FUNCIONARIO" EntitySet="TB_FUNCIONARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_PESSOA_TB_DOMINIO_TIPOPESSOA" Association="Self.FK_TB_PESSOA_TB_DOMINIO_TIPOPESSOA">
+      <End Role="TB_DOMINIO_TIPOPESSOA" EntitySet="TB_DOMINIO_TIPOPESSOA" />
+      <End Role="TB_PESSOA" EntitySet="TB_PESSOA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_TELEFONE_TB_PESSOA" Association="Self.FK_TB_TELEFONE_TB_PESSOA">
+      <End Role="TB_PESSOA" EntitySet="TB_PESSOA" />
+      <End Role="TB_TELEFONE" EntitySet="TB_TELEFONE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
